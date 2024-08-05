@@ -6,13 +6,12 @@ from sklearn.metrics.pairwise import cosine_similarity
 import wikipedia
 
 # Download required NLTK data files
-nltk.download('averaged_perceptron_tagger')
-nltk.download('wordnet')
-nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('punkt', quiet=True)
 
 # Initialize lemmatizer
 lemmatizer = WordNetLemmatizer()
-
 
 def lemma_me(sent):
     sentence_tokens = nltk.word_tokenize(sent.lower())
@@ -30,7 +29,6 @@ def lemma_me(sent):
 
     return sentence_lemmas
 
-
 def process(text, question):
     sentence_tokens = nltk.sent_tokenize(text)
     sentence_tokens.append(question)
@@ -45,14 +43,13 @@ def process(text, question):
     if coeff > 0.2:
         return sentence_tokens[index]
 
-
 # Streamlit App
 st.set_page_config(page_title='Wikipedia-ChatBot', layout='wide')
 st.title('Wikipedia-ChatBot')
 
 # Sidebar for topic selection
 with st.sidebar:
-    topic_selection = st.text_input("For what topic you want to ask questions:", "MachineLearning")
+    topic_selection = st.text_input("For what topic you want to ask questions:", "Machine Learning")
 
 if topic_selection:
     try:
