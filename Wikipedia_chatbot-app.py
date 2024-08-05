@@ -49,7 +49,7 @@ st.title('Wikipedia-ChatBot')
 
 # Sidebar for topic selection
 with st.sidebar:
-    topic_selection = st.text_input("For what topic you want to ask questions:", "Machine Learning")
+    topic_selection = st.text_input("For what topic you want to ask questions:", "MachineLearning")
 
 if topic_selection:
     try:
